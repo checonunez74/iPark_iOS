@@ -1,0 +1,6 @@
+target 'iPark' do
+	platform :ios, '7.0'
+	pod 'Firebase'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
+end
