@@ -32,8 +32,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     //Constants
     let zones = ["Zone 1", "Zone 2", "Zone 3"]
 
-    
-    
     // Do any additional setup after loading the view.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
@@ -52,24 +50,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         SignUpLabel.text = zones[row]
     }
     
-    func createUser(email:String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { ( result, error) in
-            if error == nil {
-                // User created
-                print("User Created")
-                // SignIn User
-                 self.performSegue(withIdentifier: "goToMap", sender: self)
-            }else {
-                print(error?.localizedDescription as Any)
-            }
-        }
-    }
-    
     //Actons
 
     @IBAction func registerPressed(_ sender: Any) {
 
         Auth.auth().createUser(withEmail: EmailOu.text!, password: PasswordOu.text!) { (user, error) in
+            
             if error != nil {
                 print(error!.localizedDescription)
                 let alert = UIAlertController(title: "Something's Wrong!", message: "Please try again later", preferredStyle: .alert)
@@ -82,21 +68,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 self.present(alert,animated: true, completion: nil)
             }
             else {
+                /// creting object to access the database
                 let ref = Database.database().reference()
-                let usersReference = ref.child("users")
+                ///
+                let usersReference = ref.child("Users")
                // print(usersReference.description())
                 
-               ////////new way to get uid from Firebase without using FIRUser////////
+                ////////new way to get uid from Firebase without using FIRUser////////
                 let user = Auth.auth().currentUser
+                
                 if let user = user {
                     // The user's ID, unique to the Firebase project.
                     // Do NOT use this value to authenticate with your backend server,
                     // if you have one. Use getTokenWithCompletion:completion: instead.
                     let uid = user.uid
-                   
-                   // ...
-                   let newUserReference = usersReference.child(uid)
-                    newUserReference.setValue(["username": self.NameOu, "email": self.EmailOu])
+                    // Using setValue function to write new user profile to the database
+                    let newUserReference = usersReference.child(uid)
+                    
+                    newUserReference.setValue(["eMail": self.EmailOu.text!, "firstName": self.NameOu.text!, "lastName": self.LastNameOu.text!, "studentID": self.StudentIDOu.text!, "Parking Zone": self.SignUpLabel.text!, "uid": uid])
                 }
                 
                 print("Registration Succesful!")
