@@ -11,7 +11,6 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
   
     //Outlets
@@ -20,7 +19,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet weak var pickerView: UIPickerView!
     
     ///////Register Form outlets////////
-    
     @IBOutlet weak var NameOu: UITextField!
     @IBOutlet weak var LastNameOu: UITextField!
     @IBOutlet weak var EmailOu: UITextField!
@@ -28,9 +26,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet weak var PasswordConfOu: UITextField!
     @IBOutlet weak var StudentIDOu: UITextField!
     
-    
     //Constants
-    let zones = ["Zone 1", "Zone 2", "Zone 3"]
+    let zones = ["Parking Zone", "1", "2", "3"]
 
     // Do any additional setup after loading the view.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -47,7 +44,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        SignUpLabel.text = zones[row]
+        //SignUpLabel.text = zones[row] //Used to test the array in the pickerView
     }
     
     //Actons
@@ -58,9 +55,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
             if error != nil {
                 print(error!.localizedDescription)
-                let alert = UIAlertController(title: "Something's Wrong!", message: "Please try again later", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Something's Wrong!", message: error!.localizedDescription, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default) { (action) in
-                    print ("Success")
+                    print ("User notified of an Error")
                 }
                 
                 alert.addAction(action)
@@ -72,32 +69,48 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 let ref = Database.database().reference()
                 ///
                 let usersReference = ref.child("Users")
-               // print(usersReference.description())
+                // print(usersReference.description())
                 
                 ////////new way to get uid from Firebase without using FIRUser////////
                 let user = Auth.auth().currentUser
-                
-                if let user = user {
+    
+                if user != nil {
                     // The user's ID, unique to the Firebase project.
                     // Do NOT use this value to authenticate with your backend server,
                     // if you have one. Use getTokenWithCompletion:completion: instead.
-                    let uid = user.uid
-                    // Using setValue function to write new user profile to the database
-                    let newUserReference = usersReference.child(uid)
+                    let uid = user?.uid
+                    let newUserReference = usersReference.child(uid!)
                     
-                    newUserReference.setValue(["eMail": self.EmailOu.text!, "firstName": self.NameOu.text!, "lastName": self.LastNameOu.text!, "studentID": self.StudentIDOu.text!, "Parking Zone": self.SignUpLabel.text!, "uid": uid])
+                    // Convert strings to int for database use
+                    let studentidINT = Int(self.StudentIDOu.text!)
+                    var Pzone:Int
+                    switch self.SignUpLabel.text! {
+                    case "Parking Zone":
+                        Pzone = 0
+                    default:
+                        Pzone = Int(self.SignUpLabel.text!)!
+                    }
+                    
+                    // Using setValue function to write new user profile to the database
+                    newUserReference.setValue(
+                        [
+                            "eMail": self.EmailOu.text!,
+                            "firstName": self.NameOu.text!,
+                            "lastName": self.LastNameOu.text!,
+                            "fullName": "\(self.NameOu.text!) \(self.LastNameOu.text!)",
+                            "studentId": studentidINT,
+                            "zone": Pzone,
+                            "uId": uid
+                        ]
+                    )
                 }
-                
                 print("Registration Succesful!")
                 self.performSegue(withIdentifier: "signUpToMap", sender: self)
             }
         }
-        
-        
     }
     
     //////Code for the scroll view item/////
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -109,9 +122,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
                 self.HideKeyboard()
-        
     }
-    
     
     ////function to make keyboard autoadjust ////////
     @objc func keyboard(notification: Notification)  {
@@ -136,7 +147,5 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         return false
     }
     
-    
-
 }
 

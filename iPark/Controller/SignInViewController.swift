@@ -17,7 +17,6 @@ extension UIViewController {
     func HideKeyboard() {
         
         let Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self , action: #selector(DismissKeyboard))
-        
         view.addGestureRecognizer(Tap)
     }
     
@@ -27,6 +26,11 @@ extension UIViewController {
 }
 
 class ViewController: UIViewController, UITextFieldDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.HideKeyboard()
+    }
   
     // Outlets
     @IBOutlet weak var EmailSignIn: UITextField!
@@ -36,40 +40,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     // Constants
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.HideKeyboard()
-        
-    }
-    
+   
     
     func signInUser(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil {
-                print("User Signed In")
+                print("User Signed In Successfully")
                 //
-                self.performSegue(withIdentifier: "SignInToMap", sender: self)
+                self.performSegue(withIdentifier: "signInToMap", sender: self)
                 
             } else {
-                let alert = UIAlertController(title: "Something's Wrong!", message: "Please check your credetials or touch on SignUp to register", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Something's Wrong!", message: error!.localizedDescription + "Tap SignUp to register if you don't have an account yet", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default) { (action) in
-                    print ("Success")
+                    print ("SignInError: noification")
                 }
-                
                 alert.addAction(action)
-                
                 self.present(alert,animated: true, completion: nil)
             }
-            
         }
     }
     
     
     //Actions
     @IBAction func SignIn(_ sender: Any) {
-    
+        
         signInUser(email: EmailSignIn.text!, password: PasswordSignIn.text!)
     }
     

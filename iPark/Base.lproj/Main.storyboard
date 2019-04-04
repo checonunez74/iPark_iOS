@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dlm-oy-GHp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KrI-YL-sEl">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iParklgo" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-NK-l8e">
-                                <rect key="frame" x="80" y="117" width="253" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uny-42-ee9">
                                 <rect key="frame" x="1" y="385" width="412" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,8 +43,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-dW-Bxh">
-                                <rect key="frame" x="52" y="506" width="310" height="30"/>
+                                <rect key="frame" x="40" y="506" width="334" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Not registered? Sing Up!">
                                     <color key="titleColor" red="0.54988892883220875" green="1" blue="0.32577185934442698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -87,6 +84,10 @@
                                     <outlet property="delegate" destination="jH1-bg-tP4" id="fgn-wn-Qhp"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iParklgo" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-NK-l8e">
+                                <rect key="frame" x="81" y="87" width="253" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vhQ-IY-One"/>
@@ -95,12 +96,12 @@
                     <connections>
                         <outlet property="EmailSignIn" destination="oct-oj-OJ5" id="kX4-WM-nAc"/>
                         <outlet property="PasswordSignIn" destination="rTX-Mq-pN8" id="jZQ-bo-E8h"/>
-                        <segue destination="kXL-TV-mOh" kind="show" identifier="SignInToMap" id="wKO-CD-wJC"/>
+                        <segue destination="JmD-BB-m1p" kind="show" identifier="signInToMap" id="gJf-t8-DmY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTQ-rO-euq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="-10"/>
+            <point key="canvasLocation" x="1512" y="-1354"/>
         </scene>
         <!--signUp-->
         <scene sceneID="tne-QT-ifu">
@@ -116,18 +117,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez0-Ii-4G5">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eN-t7-Bxq">
-                                                <rect key="frame" x="1" y="508" width="414" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpi-F9-WjO">
-                                                <rect key="frame" x="1" y="543" width="414" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-QE-Ax1">
                                                 <rect key="frame" x="51" y="404" width="312" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -190,13 +179,6 @@
                                                     <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAS-vh-pKW"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJF-Ql-ES7">
-                                                <rect key="frame" x="52" y="32" width="309" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-uU-RHP">
                                                 <rect key="frame" x="51" y="768" width="312" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,10 +189,6 @@
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XeQ-DN-gGM"/>
                                                 </connections>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iParklgo" translatesAutoresizingMaskIntoConstraints="NO" id="nf0-to-qqj">
-                                                <rect key="frame" x="80" y="90" width="253" height="165"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCU-PF-4IJ">
                                                 <rect key="frame" x="53" y="825" width="311" height="86"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -240,8 +218,8 @@
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passwrod" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUr-7Y-z2G">
-                                                <rect key="frame" x="54" y="558" width="310" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUr-7Y-z2G">
+                                                <rect key="frame" x="54" y="558" width="310" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -261,6 +239,22 @@
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eN-t7-Bxq">
+                                                <rect key="frame" x="-1" y="206" width="414" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpi-F9-WjO">
+                                                <rect key="frame" x="-1" y="241" width="414" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.95348918289999995" blue="0.039891426039999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iParklgo" translatesAutoresizingMaskIntoConstraints="NO" id="RSm-dT-4TR">
+                                                <rect key="frame" x="79" y="55" width="253" height="165"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.67000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -296,68 +290,90 @@
                         <outlet property="NameOu" destination="fLx-hq-UoT" id="0IB-Du-jVi"/>
                         <outlet property="PasswordConfOu" destination="67V-S4-L0g" id="A5O-Mu-I2u"/>
                         <outlet property="PasswordOu" destination="hh5-La-22D" id="lMP-y7-eDc"/>
-                        <outlet property="SignUpLabel" destination="uJF-Ql-ES7" id="FU0-Vy-2dv"/>
                         <outlet property="StudentIDOu" destination="8ws-uU-RHP" id="t3o-Lz-3qh"/>
                         <outlet property="pickerView" destination="YCU-PF-4IJ" id="Ycp-XG-0vf"/>
                         <outlet property="scrollView" destination="3x7-41-PCD" id="hgZ-cL-YdH"/>
-                        <segue destination="kXL-TV-mOh" kind="show" identifier="signUpToMap" id="cb2-xY-tj7"/>
+                        <segue destination="JmD-BB-m1p" kind="show" identifier="signUpToMap" id="U5d-Rf-hXx"/>
+                        <segue destination="KrI-YL-sEl" kind="show" identifier="signUpTosignIn" id="cMQ-KU-V1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668.11594202898561" y="341.57608695652175"/>
+            <point key="canvasLocation" x="1513" y="-408"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="uDX-b6-kxv">
+        <!--Welcome to iPark-->
+        <scene sceneID="juk-Uq-q80">
             <objects>
-                <viewController id="kXL-TV-mOh" customClass="MapViewController" customModule="iPark" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NH7-WC-3is">
+                <viewController title="Welcome to iPark" hidesBottomBarWhenPushed="YES" id="JmD-BB-m1p" customClass="MapViewController" customModule="iPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" id="dEh-Em-FhZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDE-1X-o4I">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="677"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-1K-eY4">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JmD-BB-m1p" id="KVs-UR-eFB"/>
+                                </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Request Ride" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL4-EH-RB4">
-                                <rect key="frame" x="0.0" y="690" width="414" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinRed" translatesAutoresizingMaskIntoConstraints="NO" id="VEF-7D-2YS">
+                                <rect key="frame" x="192" y="338" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="h5Q-Z5-M85"/>
+                                    <constraint firstAttribute="width" constant="60" id="wbO-lC-lw5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gUY-Jj-NyB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0oF-1K-eY4" secondAttribute="trailing" id="1dg-io-sNH"/>
+                            <constraint firstItem="0oF-1K-eY4" firstAttribute="top" secondItem="saW-Z4-JTZ" secondAttribute="top" id="6Wy-Cu-BQk"/>
+                            <constraint firstItem="0oF-1K-eY4" firstAttribute="leading" secondItem="dEh-Em-FhZ" secondAttribute="leading" id="RHc-Hz-rS6"/>
+                            <constraint firstItem="0oF-1K-eY4" firstAttribute="bottom" secondItem="saW-Z4-JTZ" secondAttribute="bottom" id="TS3-5F-sCR"/>
+                            <constraint firstItem="VEF-7D-2YS" firstAttribute="centerX" secondItem="dEh-Em-FhZ" secondAttribute="centerX" constant="15" id="UMq-sG-pv8"/>
+                            <constraint firstItem="VEF-7D-2YS" firstAttribute="centerY" secondItem="dEh-Em-FhZ" secondAttribute="centerY" id="Xcc-oK-4SI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="saW-Z4-JTZ"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="map" destination="0oF-1K-eY4" id="1rw-M4-zg6"/>
+                        <segue destination="KrI-YL-sEl" kind="show" identifier="MapToSignIn" id="Fox-6i-eKO"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BAx-G8-jf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kbf-Y5-O28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436.2318840579712" y="-10.597826086956523"/>
+            <point key="canvasLocation" x="2313.04347826087" y="-976.63043478260875"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="wNH-km-k0V">
+        <scene sceneID="coa-1D-s5U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dlm-oy-GHp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KrI-YL-sEl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZIh-Wr-Jzf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7YX-o7-6tL">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jH1-bg-tP4" kind="relationship" relationship="rootViewController" id="hFw-cy-puP"/>
+                        <segue destination="jH1-bg-tP4" kind="relationship" relationship="rootViewController" id="hSn-qV-yvS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ltK-5u-79N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMh-zJ-363" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007.2463768115942" y="-9.7826086956521738"/>
+            <point key="canvasLocation" x="488" y="-808"/>
         </scene>
     </scenes>
     <resources>
         <image name="iParklgo" width="1024" height="1024"/>
+        <image name="pinRed" width="298" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cb2-xY-tj7"/>
+        <segue reference="Fox-6i-eKO"/>
+        <segue reference="gJf-t8-DmY"/>
     </inferredMetricsTieBreakers>
 </document>
